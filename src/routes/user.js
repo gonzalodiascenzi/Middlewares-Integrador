@@ -4,7 +4,7 @@ const multer = require('multer');
 const userController = require('../controllers/userController');
 const validator = require('../middlewares/validator');
 const authentication = require('../middlewares/authentication');
-const guest = require('../middlewares/guest');
+const invited = require('../middlewares/invited');
 ///////////////////////////////////////////////////////////
 
 // Multer config
@@ -24,16 +24,16 @@ const upload = multer({
 
 // Vista de registro
 
-router.get('/register', guest, userController.showRegister);
+router.get('/register', invited, userController.showRegister);
 
 // Procesar vista de registro
-router.post('/register', upload.any(), guest, validator.register, userController.processRegister);
+router.post('/register', upload.any(), invited, validator.register, userController.processRegister);
 
 // Vista de login
-router.get('/login', guest, userController.showLogin);
+router.get('/login', invited, userController.showLogin);
 
 // Procesar vista de login
-router.post('/login', guest, validator.login, userController.processLogin);
+router.post('/login', invited, validator.login, userController.processLogin);
 
 // Perfil del usuario
 router.get('/profile', authentication, userController.showProfile);
