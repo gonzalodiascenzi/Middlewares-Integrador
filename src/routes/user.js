@@ -1,24 +1,44 @@
 const express = require('express');
 const router = express.Router();
-
+const multer = require('multer');
 const userController = require('../controllers/userController');
+const validator = require('../middlewares/validator');
+const authentication = require('../middlewares/authentication');
+const guest = require('../middlewares/guest');
+///////////////////////////////////////////////////////////
 
-// Muestra la vista de registro
-router.get('/register', userController.showRegister);
+// Multer config
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'public/images/users');
+    },
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + ' - ' + file.originalname);
+    }
+})
+const upload = multer({ 
+    storage: storage
+})
 
-// Procesa la vista de registro
-router.post('/register', userController.processRegister);
+///////////////////////////////////////////////////////////
 
-// Muestra la vista de login
-router.get('/login', userController.showLogin);
+// Vista de registro
 
-// Procesa la vista de login
-router.post('/login', userController.processLogin);
+router.get('/register', guest, userController.showRegister);
 
-// Muestra el perfil del usuario
-router.get('/profile', userController.showProfile);
+// Procesar vista de registro
+router.post('/register', upload.any(), guest, validator.register, userController.processRegister);
 
-// Cierra la sesión
-router.get('/logout', userController.logout);
+// Vista de login
+router.get('/login', guest, userController.showLogin);
+
+// Procesar vista de login
+router.post('/login', guest, validator.login, userController.processLogin);
+
+// Perfil del usuario
+router.get('/profile', authentication, userController.showProfile);
+
+// Cierra sesión
+router.get('/logout', authentication, userController.logout);
 
 module.exports = router;
