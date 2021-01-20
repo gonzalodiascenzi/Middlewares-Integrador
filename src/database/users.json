@@ -28,35 +28,5 @@
     "email": "lauraterrasco@live.com.ar",
     "password": "$2a$10$3FCnENK2to.vroW1PflXzO6qKJ0SMTs6FKhhuBvzIql7piimtA4p.",
     "avatar": "1611154404888 - Dragonite2.jpg"
-  },
-    {
-    "id": 1,
-    "email": "joseelgordo@live.com.ar",
-    "password": "$2a$10$i2dyZ.zxhZE3/2I9MbQyluydmdQk0mrGdt91XRCAF9ZMOOCFVgHPK",
-    "avatar": "1611106764839 - Dragonite 4.png"
-  },
-  {
-    "id": 2,
-    "email": "cazadordemonstruos@live.com.ar",
-    "password": "$2a$10$i2dyZ.zxhZE3/2I9MbQyluydmdQk0mrGdt91XRCAF9ZMOOCFVgHPK",
-    "avatar": "1611106764839 - Dragonite 4.png"
-  },
-  {
-    "id": 3,
-    "email": "gonzalo88@live.com.ar",
-    "password": "$2a$10$i2dyZ.zxhZE3/2I9MbQyluydmdQk0mrGdt91XRCAF9ZMOOCFVgHPK",
-    "avatar": "1611106764839 - Dragonite 4.png"
-  },
-  {
-    "id": 4,
-    "email": "gonzalodiascenzi@gmail.com",
-    "password": "$2a$10$rMmRUCMHLydHPiRKiLJ59.Pz5jRTjOo3lvg/bfnc5yNemrgAYdtze",
-    "avatar": "1611154191118 - Dragonite3.png"
-  },
-  {
-    "id": 5,
-    "email": "lauraterrasco@live.com.ar",
-    "password": "$2a$10$3FCnENK2to.vroW1PflXzO6qKJ0SMTs6FKhhuBvzIql7piimtA4p.",
-    "avatar": "1611154404888 - Dragonite2.jpg"
   }
 ]
