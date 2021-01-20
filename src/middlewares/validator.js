@@ -8,15 +8,16 @@ module.exports = {
         body('email')
             .notEmpty().withMessage("Complete el campo email")
                 .bail()
+            
             .isEmail().withMessage("El campo ingresado no es valido")
                 .bail()
+            
             .custom(emailValue => {
                 const users = userHelp.getAll();
-    
                 const userExists = users.find(user => user.email == emailValue);
-    
                 return !userExists;
             }).withMessage("Email ya registrado"),
+        
         body('password')
             .notEmpty().withMessage("Campo password vacio").bail()
             
