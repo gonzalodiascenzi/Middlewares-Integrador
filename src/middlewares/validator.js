@@ -1,8 +1,8 @@
-const userHelp = require('../helpers/userHelps');
 const path = require('path');
 const { body } = require('express-validator');
 const bcrypt = require('bcryptjs');
-
+const readJson = require('../helpers/readJson');
+/////////////////////////////////////////////
 module.exports = {
     register: [
         body('email')
@@ -13,7 +13,7 @@ module.exports = {
                 .bail()
             
             .custom(emailValue => {
-                const users = userHelp.getAll();
+                const users = readJson();
                 const userExists = users.find(user => user.email == emailValue);
                 return !userExists;
             }).withMessage("Email ya registrado"),
@@ -30,7 +30,7 @@ module.exports = {
             .custom((avatarValue, { req }) => req.files[0]).withMessage('Avatar obligatorio').bail()
             
             .custom((avatarValue, { req }) => {
-                const validExtensions = ['.png', '.jpeg'];
+                const validExtensions = ['.png', '.jpg'];
                 const fileExt = path.extname(req.files[0].originalname);
                 return validExtensions.includes(fileExt);
             }).withMessage("Extension invalida. ['png' o 'jpg']")
@@ -42,7 +42,7 @@ module.exports = {
             .isEmail().withMessage("Campo ingresado invalido").bail()
             
             .custom( (emailValue, { req }) => {
-                const users = userHelp.getAll();
+                const users = readJson();
                 const userFound = users.find(user => user.email == emailValue)
                 if (userFound) {
                     if (userFound.email == emailValue && bcrypt.compareSync(req.body.password, userFound.password)) {
