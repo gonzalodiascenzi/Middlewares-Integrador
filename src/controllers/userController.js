@@ -9,6 +9,7 @@ module.exports = {
     },
 
     processRegister: (req, res) => {
+    
         const error = validationResult(req);
         if (!error.isEmpty()) {
             return res.render('user/user-register-form', {
@@ -23,7 +24,7 @@ module.exports = {
             password: bcrypt.hashSync(req.body.password, 10),
             avatar: req.files[0].filename
         }
-
+        
         userHelps.writeNewUser(user);
         res.redirect('/user/login');
     },

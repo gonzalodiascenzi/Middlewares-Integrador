@@ -9,10 +9,10 @@ module.exports = {
         return users;
     },
     generateNewId: () => {
-         return users.length == 0 ? 1 : users.pop().id + 1;
+        return users.length == 0 ? 1 : users.pop().id + 1;
     },
     writeNewUser: (newUser) => {
-        const newUsersJSON = JSON.stringify( [...users, newUser], null, 2);
+        const newUsers = JSON.stringify( [...users, newUser], null, 2);
         fs.writeFileSync(pathUsersJSON, newUsers);
     }
 }

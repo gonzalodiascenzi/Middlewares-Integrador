@@ -1,17 +1,8 @@
 [
-  "[",
-  "o",
-  "b",
-  "j",
-  "e",
-  "c",
-  "t",
-  " ",
-  "O",
-  "b",
-  "j",
-  "e",
-  "c",
-  "t",
-  "]"
+  {
+    "id": 3,
+    "email": "gonzalo88@live.com.ar",
+    "password": "$2a$10$i2dyZ.zxhZE3/2I9MbQyluydmdQk0mrGdt91XRCAF9ZMOOCFVgHPK",
+    "avatar": "1611106764839 - Dragonite 4.png"
+  }
 ]
